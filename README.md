@@ -1,2 +1,106 @@
 # DARLA-S-BIRTHDAY-
 Meowwhh
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            text-align: center;
+        }h1 {
+        font-size: 3em;
+        margin-top: 30px;
+        color: white;
+    }
+
+    .message {
+        font-size: 1.5em;
+        margin: 20px;
+        color: white;
+    }
+
+    .balloons {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+    }
+
+    .balloon {
+        position: absolute;
+        width: 50px;
+        height: 70px;
+        background-color: red;
+        border-radius: 50% 50% 50% 50%;
+        animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-200px);
+            opacity: 0;
+        }
+    }
+
+    .music-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        background-color: white;
+        color: #ff5e78;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+</style>
+
+</head>
+<body><h1>Happy Birthday Bestie! 🎉</h1>
+<p class="message">Wishing you a day filled with love, laughter, and unforgettable memories! 🌸💖</p>
+<button class="music-btn" onclick="playMusic()">Play Birthday Song 🎵</button>
+
+<div class="balloons"></div>
+
+<audio id="birthdayMusic">
+    <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    function createBalloon() {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.style.left = Math.random() * 100 + 'vw';
+        balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
+        document.querySelector('.balloons').appendChild(balloon);
+
+        setTimeout(() => {
+            balloon.remove();
+        }, 10000);
+    }
+
+    setInterval(createBalloon, 500);
+
+    function playMusic() {
+        document.getElementById('birthdayMusic').play();
+    }
+</script>
+
+</body>
+</html>
